@@ -4,6 +4,7 @@ block input
   input.vinput-form-control(
     ref="input",
     v-model="localValue",
+    :placeholder="placeholder",
     @keyup.enter="save"
   )
   // a.vinput-clear(

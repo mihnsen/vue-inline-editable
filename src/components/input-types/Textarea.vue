@@ -4,6 +4,7 @@ block input
   textarea.vinput-form-control(
     ref="input",
     v-model="localValue",
+    :placeholder="placeholder",
   )
 </template>
 <script lang="ts">

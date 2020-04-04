@@ -42,6 +42,8 @@ VueInlineEditable(
 | -------------- | ----------- | ----------- | ------------------------------------------ |
 | v-model        | Yes         | Null        | Vue Model                                  |
 | type           | Yes         | text        | Field type                                 |
+| placeholder    | Yes         |             | Placeholder text                           |
+| empty-value    | Yes         |             | Text when empty                            |
 | label          | No          | Null        | Form label                                 |
 | resource       | No          | Null        | Resource in data model, ex: user_table     |
 | field          | No          | Null        | Field in data model, ex: username          |

@@ -31,6 +31,18 @@ export default class Basic extends Vue {
 
   @Prop({
     type: String,
+    default: ''
+  })
+  placeholder!: string
+
+  @Prop({
+    type: String,
+    default: ''
+  })
+  emptyValue!: string
+
+  @Prop({
+    type: String,
     default: 'inline'
   })
   placement!: string
@@ -50,16 +62,18 @@ export default class Basic extends Vue {
   })
   field!: string
 
-  @Prop({
-    type: String
-  })
-  pk!: string
+  @Prop()
+  pk!: any
 
   localValue: any = this.value
   handle: Function = this.$inlineEditableOption.handle
   isEdit: boolean = false
   isProcessing: boolean = false
   orientation: string = 'horizontal'
+
+  get prevewValue() {
+    return this.value || this.emptyValue
+  }
 
   get isInline() {
     return this.placement === 'inline'
@@ -118,7 +132,10 @@ export default class Basic extends Vue {
   edit() {
     EventBus.$emit('open_inline_editable')
     this.isEdit = true
-    this.focus()
+
+    setTimeout(() => {
+      this.focus()
+    }, 200)
   }
 
   focus() {
