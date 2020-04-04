@@ -26,6 +26,10 @@
     line-height: $vinput-line-height;
     text-decoration: none;
     border-bottom: 1px dashed $vinput-primary;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 }
 
@@ -73,9 +77,13 @@
   color: inherit;
   text-decoration: none;
   opacity: .7;
-  font-size: 1.2em;
+  font-size: 1em;
   border-radius: 50%;
   background: #fff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &:hover {
     text-decoration: none;
