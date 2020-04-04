@@ -1,6 +1,6 @@
 {
   "name": "vue-inline-editable",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "dist/vue-inline-editable.common.js",
   "types": "index.d.ts",
   "scripts": {

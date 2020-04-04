@@ -6,11 +6,11 @@ block input
     v-model="localValue",
     @keyup.enter="save"
   )
-  a.vinput-clear(
-    v-if="value",
-    href="javascript:;",
-    @click.stop="clear",
-  ) &times;
+  // a.vinput-clear(
+  //   v-if="value",
+  //   href="javascript:;",
+  //   @click.stop="clear",
+  // ) &times;
 </template>
 <script lang="ts">
 import { Component } from 'vue-property-decorator'
