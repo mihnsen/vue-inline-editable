@@ -11760,10 +11760,10 @@ vue-loader@^15.7.1:
     vue-hot-reload-api "^2.3.0"
     vue-style-loader "^4.1.0"
 
-vue-promise-button@^0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/vue-promise-button/-/vue-promise-button-0.1.4.tgz#c82489aa6981f12e012aaf3bad9f051d0d99f388"
-  integrity sha512-f9YCOLwwOwWr2f5IqI/6r3C+HKwpedXuKzNkrRWvgok8Ben7bo86Y+cJcCoQxTDTAS67WtqyI3u8JG/nmFel4w==
+vue-promise-button@^0.1.5:
+  version "0.1.5"
+  resolved "https://registry.yarnpkg.com/vue-promise-button/-/vue-promise-button-0.1.5.tgz#98e777327761418db88b83ccf46489ee00e25d35"
+  integrity sha512-1mNzoZ9l1nrsDe2y70ZnPe3Bs1nfHJizinw0vzXbfERlbnpDqZJ3UJVZLBpLECUAUG6qssFCTK2dlsZHGqOJ5w==
   dependencies:
     vue "^2.6.10"
 

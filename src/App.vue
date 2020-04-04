@@ -9,6 +9,10 @@
     VueInlineEditable(
       type="text",
       v-model="name",
+      resource="user",
+      field="username",
+      pk="1",
+      placement="popup"
     )
     br
     VueInlineEditable(
