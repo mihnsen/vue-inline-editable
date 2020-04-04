@@ -1,5 +1,5 @@
 // @see: https://www.typescriptlang.org/docs/handbook/declaration-files/templates/module-d-ts.html
-// Type definitions for vue-ui-grid
+// Type definitions for vue-inline-editable
 // Project: Additional UI elements for VueJS
 // Definitions by: mihnsen <https://github.com/mihnsen/>
 
@@ -22,5 +22,4 @@ export default class VueInlineEditablePlugin implements PluginObject<{}>{
   static install(pVue: typeof Vue, options?:{} | undefined): void
 }
 
-// Grid and List
 export const VueInlineEditable: object;

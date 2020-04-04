@@ -1,7 +1,7 @@
 ---
 home: true
 heroText: Vue Inline Editable
-tagline: Simple, fast, powerful grid package for vuejs
+tagline: Edit in place for VueJS
 actionText: Get Started →
 actionLink: /guide/
 features:

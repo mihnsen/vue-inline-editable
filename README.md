@@ -1,121 +1,52 @@
-# vue-ui-grid
-Simple, fast, powerful grid package for vuejs
+# vue-inline-editable
+Edit in place for VueJS
 
 ## Demo
-https://mihnsen.github.io/vue-ui-grid/
+https://mihnsen.github.io/vue-inline-editable/
 
 
 ## Installation
 ```
-npm install vue-ui-grid
+npm install vue-inline-editable
 or
-yarn add vue-ui-grid
+yarn add vue-inline-editable
 ```
 
 ## Usage
 ```
-import VGrid from 'vue-ui-grid';
+import VueInlineEditable from 'vue-inline-editable';
 
 // Use it
-Grid.vgrid-center(
-  :columns="gridColumns",
-  :data="gridData",
-  :per-page="2",
-  :column-filter="true",
+VueInlineEditable(
+  type="text",
+  v-model="name",
 )
-  template(
-    slot="column-action"
-    slot-scope="{ entry }"
-  )
-    button(
-      type="button",
-    ) ADD
 
 // Or list
-
-List(
-  :columns="listColumns",
-  :data="listData",
-  :per-page="10",
-  :column-visible="true",
-  :orderable="true",
-  ref="list"
+VueInlineEditable(
+  type="textarea",
+  label="Edit me",
+  resource="user",
+  field="username",
+  pk="1",
+  placement="popup"
+  v-model="name",
 )
-  template(
-    slot="column-action"
-    slot-scope="{ entry }"
-  )
-    button(
-      type="button",
-    ) ADD
-    a(
-      href="gooogle.com"
-    ) Edit
 
 // CSS
-@import '~vue-ui-grid/src/assets/scss/index'
+@import '~vue-inline-editable/src/assets/scss/index'
 ```
-
-Setup your promise function as a promise like this.
-```
-export default {
-  data() {
-    return {
-      gridColumns: [
-        {
-          field: 'name',
-          lable: 'Actor'
-        },
-        {
-          field: 'power',
-          lable: 'Power'
-        }
-      ],
-      gridData: [
-        { name: 'Chuck Norris', power: Infinity },
-        { name: 'Bruce Lee', power: 9000 },
-        { name: 'Jackie Chan', power: 7000 },
-        { name: 'Jet Li', power: 8000 }
-      ]
-    }
-  }
-}
-```
-
-#### Column Properties
-```
-{
-  field: 'id',
-  label: 'ID',
-  filter: true,
-  hidden: true,
-  width: 3
-}
-```
-| Option      | Required    | Default     | Description                    |
-| ----------- | ----------- | ----------- | ------------------------------ |
-| field       | Yes         |             | Title                          |
-| label       | No          |             | Label of column                |
-| type        | No          | String      | field type (text/number/date)  |
-| filter      | No          | False       | Set column filter or not       |
-| order       | No          | False       | Set column order or not        |
-| hidden      | No          | False       | Set hidden column, can't see   |
-| width       | No          | False       | Set width column, use for list |
-| format      | No          |             | Format content: '<strong>{name}</strong>' |
 
 #### Props
-| Props          | Required    | Default     | Description                    |
-| -------------- | ----------- | ----------- | ------------------------------ |
-| columns        | Yes         | []          | Column config                  |
-| data           | Yes         | []          | Data source                    |
-| per-page       | No          | 10          | Number of items per page       |
-| searchable     | No          | True        | Search data in header          |
-| filterable     | No          | True        | Filter data in header          |
-| column-visible | No          | False       | Custom show hide, order column |
-| column-filterable | No       | False       | Filter column in side grid     |
-| index          | No          | 0           | Initial page                   |
-| status         | No          | True        | Grid status                    |
-| pagination     | No          | True        | Paginate data                  |
+| Props          | Required    | Default     | Description                                |
+| -------------- | ----------- | ----------- | ------------------------------------------ |
+| v-model        | Yes         | Null        | Vue Model                                  |
+| type           | Yes         | text        | Field type                                 |
+| label          | No          | Null        | Form label                                 |
+| resource       | No          | Null        | Resource in data model, ex: user_table     |
+| field          | No          | Null        | Field in data model, ex: username          |
+| pk             | No          | Null        | Primary key in model, ex: user has id = 1  |
+| placement      | No          | 'inline'    | Show editable as inline or popover         |
 
 ## Development
 ```
