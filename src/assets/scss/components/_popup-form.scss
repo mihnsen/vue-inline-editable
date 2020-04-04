@@ -1,0 +1,63 @@
+.vinput-form-popup {
+  position: absolute;
+  bottom: calc(100% + 20px);
+  top: auto;
+  left: 50%;
+  right: auto;
+  transform: translate(-50%, 0);
+  border: 1px solid $vinput-border;
+  border-radius: $vinput-border-radius;
+  background-color: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
+  display: flex;
+  flex-direction: column;
+
+  .vinput-label {
+    padding: .5rem 1rem;
+    margin: 0;
+    font-size: inherit;
+    font-weight: normal;
+    background-color: #f7f7f7;
+    border-bottom: 1px solid $vinput-border;
+  }
+
+  .vinput-group {
+    padding: .5rem 1rem;
+    flex-wrap: nowrap;
+  }
+
+  .vinput-form-control {
+    width: auto;
+  }
+}
+
+.vinput-arrow {
+  display: block;
+  position: absolute;
+  bottom: -11px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  margin-left: -11px;
+  border-color: transparent;
+  border-style: solid;
+  border-top-color: rgba(0, 0, 0, 0.25);
+  border-bottom-width: 0;
+
+  &:after {
+    position: absolute;
+    display: block;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 10px;
+
+    bottom: 1px;
+    margin-left: -10px;
+    border-top-color: #ffffff;
+    border-bottom-width: 0;
+    content: " ";
+  }
+}

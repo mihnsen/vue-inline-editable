@@ -1,0 +1,84 @@
+.vinput {
+  position: relative;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: start;
+
+  &,
+  *,
+  &:before,
+  &:after,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+  }
+}
+
+.vinput-value {
+  display: inline-flex;
+
+  a {
+    display: inline-flex;
+    min-width: 1rem;
+    min-height: 1rem;
+    color: $vinput-primary;
+    line-height: $vinput-line-height;
+    text-decoration: none;
+    border-bottom: 1px dashed $vinput-primary;
+  }
+}
+
+.vinput-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+  white-space: nowrap;
+  flex-wrap: nowrap;
+}
+
+.vinput-input {
+  position: relative;
+  margin-right: .35rem;
+}
+
+.vinput-action {
+  svg {
+    width: 12px;
+    height: auto;
+    fill: currentColor;
+  }
+
+  .vinput-btn {
+    + .vinput-btn {
+      margin-left: .35rem;
+    }
+  }
+
+  .vinput-btn-primary {
+    svg {
+      width: 15px;
+    }
+  }
+}
+
+.vinput-clear {
+  position: absolute;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+  right: 1px;
+  transform: translate(0, -50%);
+  color: inherit;
+  text-decoration: none;
+  opacity: .7;
+  font-size: 1.2em;
+  border-radius: 50%;
+  background: #fff;
+
+  &:hover {
+    text-decoration: none;
+    opacity: 1;
+  }
+}

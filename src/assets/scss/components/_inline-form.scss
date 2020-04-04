@@ -1,0 +1,13 @@
+.vinput-form-inline {
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+
+  .vinput-label {
+    margin-right: .5rem;
+
+    &:after {
+      content: ':';
+    }
+  }
+}

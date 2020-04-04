@@ -1,0 +1,24 @@
+@import '~bootstrap/scss/functions';
+@import '~bootstrap/scss/variables';
+@import '~bootstrap/scss/mixins';
+
+@import 'variables';
+
+// Mixin
+@import 'mixins/form';
+
+// Bootstrap
+@import '~bootstrap/scss/forms';
+@import '~bootstrap/scss/utilities/screenreaders';
+
+// CSS
+@import 'components/input-types/basic';
+@import 'components/input-types/form-control';
+@import 'components/input-types/text';
+
+@import 'components/inline-form';
+@import 'components/popup-form';
+@import 'components/label';
+
+// Global components
+@import 'components/button';

@@ -1,0 +1,39 @@
+.vinput(
+  :class="classes",
+  @click.stop="stopClick"
+)
+  .vinput-value(v-show="!isEdit || isPopup")
+    slot
+      block value
+        a(
+          href="javascript:;"
+          v-html="value",
+          @click.stop="edit"
+        )
+  .vinput-form(
+    :class="formClasses",
+    v-show="isEdit"
+  )
+    slot
+      block content
+        .vinput-label(v-if="label") {{ label }}
+        .vinput-group
+          .vinput-input
+            slot(name="input")
+              block input
+          .vinput-action
+            PromiseButton.vinput-btn.vinput-btn-primary(
+              href="javascript:;",
+              :auto-hide="true",
+              :promise="save",
+              :force-processing="isProcessing"
+            )
+              Tick
+              span.sr-only Save
+            a.vinput-btn(
+              href="javascript:;",
+              @click="cancel"
+            )
+              Close
+              span.sr-only Cancel
+    .vinput-arrow(v-if="isPopup")

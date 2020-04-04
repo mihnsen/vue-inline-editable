@@ -1,0 +1,7 @@
+.vinput-form-control {
+  @extend .form-control;
+  height: calc(1.5em + 0.45rem + 2px);
+  line-height: $vinput-line-height;
+  border-radius: $vinput-border-radius;
+  border-color: $vinput-border;
+}

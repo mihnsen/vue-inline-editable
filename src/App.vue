@@ -1,0 +1,48 @@
+<template lang="pug">
+#app
+  img(
+    alt="Vue logo"
+    src="./assets/logo.png"
+  )
+  div(style="width: 1000px; margin: 20px auto 50px")
+    pre {{ name }}
+    VueInlineEditable(
+      type="text",
+      v-model="name",
+    )
+    br
+    VueInlineEditable(
+      type="text",
+      label="Edit me",
+      resource="user",
+      field="username",
+      pk="1",
+      placement="popup"
+      v-model="name",
+    )
+</template>
+
+<script lang="ts">
+import { Component, Vue } from 'vue-property-decorator'
+import VueInlineEditable from './components/VueInlineEditable.vue'
+
+@Component({
+  components: {
+    VueInlineEditable
+  }
+})
+export default class App extends Vue {
+  name = 'John Doe'
+}
+</script>
+
+<style lang="scss">
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin-top: 60px;
+}
+</style>
