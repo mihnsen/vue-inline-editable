@@ -3,6 +3,7 @@ import Vue from 'vue'
 
 import Basic from './input-types/Basic.vue'
 import Text from './input-types/Text.vue'
+import Textarea from './input-types/Textarea.vue'
 import DateTime from './input-types/DateTime.vue'
 import Timestamp from './input-types/Timestamp.vue'
 import Custom from './input-types/Custom.vue'
@@ -34,6 +35,9 @@ export default Vue.extend({
       switch (type) {
         case 'text':
           columnLayout = Text
+          break
+        case 'textarea':
+          columnLayout = Textarea
           break
         case 'datetime':
           columnLayout = DateTime

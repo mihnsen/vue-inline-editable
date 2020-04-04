@@ -12,13 +12,16 @@
 @import '~bootstrap/scss/utilities/screenreaders';
 
 // CSS
-@import 'components/input-types/basic';
-@import 'components/input-types/form-control';
-@import 'components/input-types/text';
+@import 'input-types/basic';
+@import 'input-types/form-control';
+@import 'input-types/text';
+@import 'input-types/textarea';
 
 @import 'components/inline-form';
 @import 'components/popup-form';
 @import 'components/label';
+@import 'components/horizontal';
+@import 'components/vertical';
 
 // Global components
 @import 'components/button';

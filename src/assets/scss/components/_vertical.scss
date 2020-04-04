@@ -1,0 +1,13 @@
+.vinput-vertical {
+  .vinput-group {
+    flex-direction: column;
+  }
+
+  .vinput-input {
+    margin-bottom: .35rem;
+  }
+
+  .vinput-action {
+    width: 100%;
+  }
+}

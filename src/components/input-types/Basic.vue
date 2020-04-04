@@ -59,6 +59,7 @@ export default class Basic extends Vue {
   handle: Function = this.$inlineEditableOption.handle
   isEdit: boolean = false
   isProcessing: boolean = false
+  orientation: string = 'horizontal'
 
   get isInline() {
     return this.placement === 'inline'
@@ -70,7 +71,8 @@ export default class Basic extends Vue {
 
   get classes() {
     return [
-      `vinput-${this.type}`
+      `vinput-${this.type}`,
+      `vinput-${this.orientation}`
     ]
   }
 

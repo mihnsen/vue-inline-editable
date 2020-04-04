@@ -12,7 +12,7 @@
     )
     br
     VueInlineEditable(
-      type="text",
+      type="textarea",
       label="Edit me",
       resource="user",
       field="username",
