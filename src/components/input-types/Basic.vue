@@ -2,7 +2,7 @@
 extends Basic.pug
 </template>
 <script lang="ts">
-import { Component, PropSync, Prop, Vue } from 'vue-property-decorator'
+import { Component, PropSync, Prop, Vue, Watch } from 'vue-property-decorator'
 import PromiseButton from 'vue-promise-button/src/components/PromiseButton.vue'
 import Tick from '../../assets/tick.svg'
 import Close from '../../assets/close.svg'
@@ -65,13 +65,18 @@ export default class Basic extends Vue {
   @Prop()
   pk!: any
 
+  @Watch('value')
+  onValueChanged() {
+    this.localValue = this.value
+  }
+
   localValue: any = this.value
   handle: Function = this.$inlineEditableOption.handle
   isEdit: boolean = false
   isProcessing: boolean = false
   orientation: string = 'horizontal'
 
-  get prevewValue() {
+  get previewValue() {
     return this.value || this.emptyValue
   }
 
@@ -112,11 +117,11 @@ export default class Basic extends Vue {
 
   stopClick() {}
 
-  save() {
+  save(e) {
     if (this.resource && this.handle) {
-      return this.handleSave()
+      return this.handleSave(e)
     } else {
-      return this.basicSave()
+      return this.basicSave(e)
     }
   }
 
@@ -145,22 +150,25 @@ export default class Basic extends Vue {
     }
   }
 
-  handleSave() {
+  handleSave(e) {
+    const value = e ? e.target.value : this.localValue
     this.isProcessing = true
-    return this.handle(this.localValue, this.resource, this.pk, this.field)
+
+    return this.handle(value, this.resource, this.pk, this.field)
       .then(() => {
-        this.basicSave()
+        this.basicSave(e)
       })
       .finally(() => {
         this.isProcessing = false
       })
   }
 
-  basicSave() {
-    this.$emit('update:value', this.localValue)
+  basicSave(e) {
+    const value = e ? e.target.value : this.localValue
+    this.$emit('update:value', value)
     this.close()
 
-    return Promise.resolve(this.localValue)
+    return Promise.resolve(value)
   }
 }
 </script>

@@ -6,6 +6,7 @@ import Text from './input-types/Text.vue'
 import Textarea from './input-types/Textarea.vue'
 import DateTime from './input-types/DateTime.vue'
 import Timestamp from './input-types/Timestamp.vue'
+import ExcelCol from './input-types/ExcelCol.vue'
 import Custom from './input-types/Custom.vue'
 
 export default Vue.extend({
@@ -25,6 +26,13 @@ export default Vue.extend({
       type: String
     },
     pk: {
+      type: String
+    },
+    placeholder: {
+      type: String
+    },
+    rows: {
+      type: String
     }
   },
   render: (createElement, context) => {
@@ -47,6 +55,9 @@ export default Vue.extend({
           break
         case 'custom':
           columnLayout = Custom
+          break
+        case 'excelcol':
+          columnLayout = ExcelCol
           break
         default:
           break

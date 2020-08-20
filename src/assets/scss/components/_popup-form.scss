@@ -1,5 +1,6 @@
 .vinput-form-popup {
   position: absolute;
+  z-index: 10;
   bottom: calc(100% + 20px);
   top: auto;
   left: 50%;

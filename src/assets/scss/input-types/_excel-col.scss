@@ -1,0 +1,30 @@
+.vinput-excelcol-input {
+  display: block;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  resize: none;
+  border-radius: 0;
+  padding: 2px 4px;
+  border: 1px solid $vinput-excel-border;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.vinput-excelcol-value {
+  display: block;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  resize: none;
+  border-radius: 0;
+  padding: 2px 4px;
+  border: 1px solid transparent;
+
+  &:focus {
+    border-color: $vinput-excel-border;
+    outline: none;
+  }
+}

@@ -21,7 +21,18 @@
       resource="user",
       field="username",
       pk="1",
+      rows="5",
       placement="popup"
+      v-model="name",
+    )
+    br
+    VueInlineEditable(
+      type="excelcol",
+      label="Edit me",
+      resource="user",
+      field="username",
+      :vertical-space="4",
+      pk="1",
       v-model="name",
     )
 </template>
