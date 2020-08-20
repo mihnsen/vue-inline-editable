@@ -54,7 +54,7 @@ export default class ExecelCol extends Basic {
     }
   }
 
-  saveExecel(e) {
+  saveExecel(e: any) {
     if (e && !e.shiftKey) {
       e.preventDefault()
       e.stopPropagation()

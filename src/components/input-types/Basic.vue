@@ -117,7 +117,7 @@ export default class Basic extends Vue {
 
   stopClick() {}
 
-  save(e) {
+  save(e: any) {
     if (this.resource && this.handle) {
       return this.handleSave(e)
     } else {
@@ -150,7 +150,7 @@ export default class Basic extends Vue {
     }
   }
 
-  handleSave(e) {
+  handleSave(e: any) {
     const value = e ? e.target.value : this.localValue
     this.isProcessing = true
 
@@ -163,7 +163,7 @@ export default class Basic extends Vue {
       })
   }
 
-  basicSave(e) {
+  basicSave(e: any) {
     const value = e ? e.target.value : this.localValue
     this.$emit('update:value', value)
     this.close()
