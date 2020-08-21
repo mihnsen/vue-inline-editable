@@ -34,7 +34,7 @@ export default Vue.extend({
       type: String
     },
     handleFn: {
-      type: String
+      type: Function
     }
   },
   render: (createElement, context) => {
