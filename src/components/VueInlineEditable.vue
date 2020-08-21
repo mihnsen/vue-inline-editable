@@ -32,6 +32,9 @@ export default Vue.extend({
     },
     rows: {
       type: String
+    },
+    handleFn: {
+      type: String
     }
   },
   render: (createElement, context) => {

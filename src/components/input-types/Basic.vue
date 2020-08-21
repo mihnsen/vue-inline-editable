@@ -65,13 +65,18 @@ export default class Basic extends Vue {
   @Prop()
   pk!: any
 
+  @Prop({
+    type: Function
+  })
+  handleFn!: Function
+
   @Watch('value')
   onValueChanged() {
     this.localValue = this.value
   }
 
   localValue: any = this.value
-  handle: Function = this.$inlineEditableOption.handle
+  handle: Function = this.handleFn ? this.handleFn : this.$inlineEditableOption.handle
   isEdit: boolean = false
   isProcessing: boolean = false
   orientation: string = 'horizontal'
