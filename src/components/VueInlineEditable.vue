@@ -26,7 +26,6 @@ export default Vue.extend({
       type: String
     },
     pk: {
-      type: String
     },
     placeholder: {
       type: String

@@ -19,7 +19,7 @@ axios.interceptors.response.use((response) => {
 })
 
 Vue.use(VueInlineEditable, {
-  handle(value: any, resource: string, pk: string, field: string) {
+  handle(value: any, resource: string, pk: any, field: string) {
     return axios.post(`${resource}/${pk}`, {
       [field]: value
     })
