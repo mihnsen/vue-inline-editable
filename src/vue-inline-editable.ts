@@ -1,4 +1,8 @@
 import VueInlineEditable from './components/VueInlineEditable.vue'
+import BasicField from './components/input-types/Basic.vue'
+import TextField from './components/input-types/Text.vue'
+import TextareaField from './components/input-types/Textarea.vue'
+import ExcelColField from './components/input-types/ExcelCol.vue'
 
 import './assets/scss/_index.scss'
 
@@ -13,7 +17,11 @@ const Plugin = {
 }
 
 export {
-  VueInlineEditable
+  VueInlineEditable,
+  BasicField,
+  TextField,
+  TextareaField,
+  ExcelColField
 }
 
 export default Plugin

@@ -5,7 +5,7 @@ block value
     v-model="localValue",
     readonly,
     :placeholder="placeholder",
-    :style="styles",
+    :inputstyle="styles",
     @dblclick="edit",
   )
 block content
@@ -14,8 +14,8 @@ block content
     v-model="localValue",
     :placeholder="placeholder",
     :style="styles",
-    @keypress.enter="saveExecel",
-    @blur="saveExecel",
+    @keypress.enter="saveExcel",
+    @blur="saveExcel",
   )
 </template>
 <script lang="ts">
@@ -23,7 +23,7 @@ import { Component, Prop } from 'vue-property-decorator'
 import Basic from './Basic.vue'
 
 @Component
-export default class ExecelCol extends Basic {
+export default class ExcelCol extends Basic {
   orientation: string = 'vertical'
 
   @Prop({
@@ -54,7 +54,7 @@ export default class ExecelCol extends Basic {
     }
   }
 
-  saveExecel(e: any) {
+  saveExcel(e: any) {
     if (e && !e.shiftKey) {
       e.preventDefault()
       e.stopPropagation()

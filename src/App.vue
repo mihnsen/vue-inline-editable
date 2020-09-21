@@ -31,7 +31,7 @@
       label="Edit me",
       resource="user",
       field="username",
-      :vertical-space="4",
+      :vertical-space="6",
       pk="1",
       v-model="name",
     )

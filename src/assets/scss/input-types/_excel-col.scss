@@ -7,6 +7,7 @@
   border-radius: 0;
   padding: 2px 4px;
   border: 1px solid $vinput-excel-border;
+  white-space: nowrap;
 
   &:focus {
     outline: none;
