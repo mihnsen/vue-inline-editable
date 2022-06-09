@@ -8,18 +8,61 @@ block input
     :placeholder="placeholder",
   )
 </template>
-<script lang="ts">
-import { Component, Prop } from 'vue-property-decorator'
-import Basic from './Basic.vue'
+<script setup lang="ts">
+import { computed, ref } from 'vue'
+import PromiseButton from 'vue-promise-button/src/components/PromiseButton.vue'
+import useInput from './useInput';
 
-@Component
-export default class DateTimeType extends Basic {
-  @Prop({
-    type: String,
-    default: '3'
-  })
-  rows!: string
+import Tick from '../../assets/tick.svg'
+import Close from '../../assets/close.svg'
+// import EventBus from '../../services/event-bus'
 
-  orientation: string = 'vertical'
+interface Props {
+  modelValue?: any;
+  type?: string;
+  rows?: number;
+  placeholder?: string;
+  emptyValue?: string;
+  placement?: string;
+  label?: string;
+  resource?: string;
+  field?: string;
+  pk?: string;
+  handleFn?: any;
 }
+
+interface Emits {
+  (event: 'update:modelValue', value: string): void
+}
+
+const props = withDefaults(defineProps<Props>(), {
+  type: 'textarea',
+  rows: 3,
+  placeholder: '',
+  emptyValue: '',
+  placement: 'inline',
+});
+const emits = defineEmits<Emits>();
+
+const {
+  localValue,
+  handle,
+  initialValue,
+  isEdit,
+  isProcessing,
+  input,
+  previewValue,
+  isInline,
+  isPopup,
+  classes,
+  formClasses,
+  stopClick,
+  save,
+  cancel,
+  close,
+  edit,
+  focus,
+  saveToApi,
+  saveAndEmit,
+} = useInput(props, emits)
 </script>

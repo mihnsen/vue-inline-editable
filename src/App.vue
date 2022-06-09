@@ -6,6 +6,7 @@
   )
   div(style="width: 1000px; margin: 20px auto 50px")
     pre {{ name }}
+    pre text
     VueInlineEditable(
       type="text",
       v-model="name",
@@ -15,17 +16,19 @@
       placement="popup"
     )
     br
+    pre textarea
     VueInlineEditable(
       type="textarea",
       label="Edit me",
       resource="user",
       field="username",
       pk="1",
-      rows="5",
+      :rows="5",
       placement="popup"
       v-model="name",
     )
     br
+    pre excelcol
     VueInlineEditable(
       type="excelcol",
       label="Edit me",
@@ -37,18 +40,17 @@
     )
 </template>
 
-<script lang="ts">
-import { Component, Vue } from 'vue-property-decorator'
+<script setup lang="ts">
+import { ref, watch } from 'vue'
 import VueInlineEditable from './components/VueInlineEditable.vue'
 
-@Component({
-  components: {
-    VueInlineEditable
+const name = ref('John Doe')
+watch(
+  () => name.value,
+  (newVal) => {
+    console.log('value change', newVal)
   }
-})
-export default class App extends Vue {
-  name = 'John Doe'
-}
+)
 </script>
 
 <style lang="scss">

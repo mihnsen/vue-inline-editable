@@ -1,81 +1,68 @@
-<script lang="ts">
-import Vue from 'vue'
-
+<template lang="pug">
+component(
+  v-model="localValue",
+  :is="fieldType"
+  v-bind="props"
+)
+</template>
+<script setup lang="ts">
+import { computed } from 'vue'
+import { useLocalValue } from '@/utilities/hooks';
 import Basic from './input-types/Basic.vue'
-import Text from './input-types/Text.vue'
+import TextField from './input-types/TextField.vue'
 import Textarea from './input-types/Textarea.vue'
-import DateTime from './input-types/DateTime.vue'
-import Timestamp from './input-types/Timestamp.vue'
+// import DateTime from './input-types/DateTime.vue'
+// import Timestamp from './input-types/Timestamp.vue'
 import ExcelCol from './input-types/ExcelCol.vue'
-import Custom from './input-types/Custom.vue'
+// import Custom from './input-types/Custom.vue'
 
-export default Vue.extend({
-  name: 'VueInlineEditable',
-  functional: true,
-  props: {
-    value: {
-    },
-    type: {
-      type: String,
-      required: true
-    },
-    label: {
-      type: String
-    },
-    resource: {
-      type: String
-    },
-    pk: {
-    },
-    placeholder: {
-      type: String
-    },
-    rows: {
-      type: String
-    },
-    handleFn: {
-      type: Function
-    }
-  },
-  render: (createElement, context) => {
-    const appropriateTypeComponent = () => {
-      const { type } = context.props
-      let columnLayout = Basic
+interface Props {
+  modelValue?: any;
+  type?: string;
+  placeholder?: string;
+  emptyValue?: string;
+  placement?: string;
+  label?: string;
+  resource?: string;
+  field?: string;
+  pk?: string;
+  handleFn?: any;
+}
 
-      switch (type) {
-        case 'text':
-          columnLayout = Text
-          break
-        case 'textarea':
-          columnLayout = Textarea
-          break
-        case 'datetime':
-          columnLayout = DateTime
-          break
-        case 'timestamp':
-          columnLayout = Timestamp
-          break
-        case 'custom':
-          columnLayout = Custom
-          break
-        case 'excelcol':
-          columnLayout = ExcelCol
-          break
-        default:
-          break
-      }
+interface Emits {
+  (event: 'update:modelValue', value: string): void
+}
 
-      return columnLayout
-    }
+const emits = defineEmits<Emits>();
+const props = defineProps<Props>()
+const localValue = useLocalValue(props, emits);
 
-    return createElement(
-      appropriateTypeComponent(),
-      {
-        ...context.data,
-        props: context.props
-      },
-      context.children
-    )
+const fieldType = computed(() => {
+  let inputEl = Basic
+
+  switch (props.type) {
+    case 'text':
+      inputEl = TextField
+      break
+    case 'textarea':
+      inputEl = Textarea
+      break
+    // case 'datetime':
+    //   inputEl = DateTime
+    //   break
+    // case 'timestamp':
+    //   inputEl = Timestamp
+    //   break
+    // case 'custom':
+    //   inputEl = Custom
+    //   break
+    case 'excelcol':
+      inputEl = ExcelCol
+      break
+    default:
+      break
   }
+
+  return inputEl
 })
 </script>

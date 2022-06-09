@@ -21,6 +21,13 @@
           .vinput-input
             slot(name="input")
               block input
+                input.vinput-form-control(
+                  ref="input",
+                  v-model="localValue",
+                  :type="type",
+                  :placeholder="placeholder",
+                  @keyup.enter="save"
+                )
           .vinput-action
             PromiseButton.vinput-btn.vinput-btn-primary(
               href="javascript:;",
@@ -29,11 +36,11 @@
               :force-processing="isProcessing"
             )
               Tick
-              span.sr-only Save
+              span.vinput-visually-hidden Save
             a.vinput-btn(
               href="javascript:;",
-              @click="cancel"
+              @click.stop="cancel"
             )
               Close
-              span.sr-only Cancel
+              span.vinput-visually-hidden Cancel
     .vinput-arrow(v-if="isPopup")

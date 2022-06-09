@@ -1,20 +1,12 @@
 <template lang="pug">
 extends Basic.pug
-block value
-  textarea.vinput-excelcol-value(
-    :value="previewValue",
-    readonly,
-    :placeholder="placeholder",
-    :style="styles",
-    @dblclick="edit",
-  )
-block content
-  textarea.vinput-excelcol-input(
+block input
+  input.vinput-form-control(
     ref="input",
     v-model="localValue",
+    type="text",
     :placeholder="placeholder",
-    :style="styles",
-    @keypress.enter="saveExcel",
+    @keyup.enter="save"
   )
 </template>
 <script setup lang="ts">
@@ -24,6 +16,7 @@ import useInput from './useInput';
 
 import Tick from '../../assets/tick.svg'
 import Close from '../../assets/close.svg'
+// import EventBus from '../../services/event-bus'
 
 interface Props {
   modelValue?: any;
@@ -36,9 +29,6 @@ interface Props {
   field?: string;
   pk?: string;
   handleFn?: any;
-
-  lineHeight?: number;
-  verticalSpace?: number;
 }
 
 interface Emits {
@@ -50,8 +40,6 @@ const props = withDefaults(defineProps<Props>(), {
   placeholder: '',
   emptyValue: '',
   placement: 'inline',
-  lineHeight: 15,
-  verticalSpace: 10,
 });
 const emits = defineEmits<Emits>();
 
@@ -76,33 +64,4 @@ const {
   saveToApi,
   saveAndEmit,
 } = useInput(props, emits)
-
-const lineCount = computed(() => {
-  if (localValue.value) {
-    return localValue.value.split(/\r*\n/).length
-  }
-
-  return 1
-})
-
-const styles = computed(() => {
-  const height = props.verticalSpace + props.lineHeight * lineCount.value
-
-  return {
-    border: '1px solid red !important',
-    height: `${height}px`
-  }
-})
-
-/**
- * cannot save when blur beause of handleBodyClick
- */
-const saveExcel = (e: any) => {
-  if (e && !e.shiftKey) {
-    e.preventDefault()
-    e.stopPropagation()
-
-    return save(e)
-  }
-}
 </script>

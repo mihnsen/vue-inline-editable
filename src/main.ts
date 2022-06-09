@@ -1,9 +1,7 @@
-import Vue from 'vue'
+import axios from 'axios'
+import { createApp } from 'vue'
 import App from './App.vue'
 import VueInlineEditable from './vue-inline-editable'
-import axios from 'axios'
-
-Vue.config.productionTip = false
 
 axios.defaults.baseURL = 'https://reqres.in/api'
 axios.interceptors.response.use((response) => {
@@ -18,7 +16,9 @@ axios.interceptors.response.use((response) => {
   return Promise.reject(error.response)
 })
 
-Vue.use(VueInlineEditable, {
+const app = createApp(App);
+
+app.use(VueInlineEditable, {
   handle(value: any, resource: string, pk: any, field: string) {
     return axios.post(`${resource}/${pk}`, {
       [field]: value
@@ -26,6 +26,4 @@ Vue.use(VueInlineEditable, {
   }
 })
 
-new Vue({
-  render: h => h(App)
-}).$mount('#app')
+app.mount('#app')

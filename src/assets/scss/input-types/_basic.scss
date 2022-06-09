@@ -47,9 +47,10 @@
 .vinput-action {
   justify-content: flex-start;
   display: inline-flex;
+  margin-left: .35rem;
 
   svg {
-    width: 12px;
+    width: 10px;
     height: auto;
     fill: currentColor;
   }
@@ -62,7 +63,7 @@
 
   .vinput-btn-primary {
     svg {
-      width: 15px;
+      width: 12px;
     }
   }
 }

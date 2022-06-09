@@ -15,11 +15,11 @@
  */
 import Vue, { PluginObject, PluginFunction } from 'vue'
 
-export default class VueInlineEditablePlugin implements PluginObject<{}>{
+export default class VueInlineEditablePlugin implements PluginObject<any>{
   [key: string]: any
-  install: PluginFunction<{}>
+  install: PluginFunction<any>
 
-  static install(pVue: typeof Vue, options?:{} | undefined): void
+  static install(pVue: typeof Vue, options?: any): void
 }
 
 export const VueInlineEditable: object;
