@@ -38,9 +38,9 @@ export default defineConfig({
   },
   build: {
     lib: {
-      entry: path.resolve(__dirname, 'src/vue-grid.ts'),
+      entry: path.resolve(__dirname, 'src/vue-inline-editable.ts'),
       name: 'VueGrid',
-      fileName: (format) => `vue-grid.${format}.js`,
+      fileName: (format) => `vue-inline-editable.${format}.js`,
     },
     cssCodeSplit: false,
     cssTarget: 'chrome61',
